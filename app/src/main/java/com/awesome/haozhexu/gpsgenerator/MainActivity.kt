@@ -22,7 +22,9 @@ class MainActivity : AppCompatActivity() {
         fab.setOnClickListener {
             val coordinate = CoordinateGenerator.getNextCoordinate()
             textView.setText("Longitude: " + coordinate.longitude + " , Latitude: " + coordinate.latitude)
-            ThreadPoolManager.getInstance().backgroundTaskExecutor.submit { Utils.testClientServerConnection() }
+            ThreadPoolManager.getInstance().backgroundTaskExecutor.submit {
+                Utils.testRecordGPSLocation(this)
+            }
         }
     }
 
