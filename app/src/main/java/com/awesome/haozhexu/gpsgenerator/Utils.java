@@ -63,9 +63,7 @@ final class Utils {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        if (error != null) {
-                            Log.e(TAG, error.getMessage());
-                        }
+                        Log.e(TAG, "Error");
                     }
                 });
         requestQueue.add(request);
