@@ -33,6 +33,8 @@ final class Utils {
 
     private static final String LATITUDE = "latitude";
 
+    private static final String ADCODE = "adcode";
+
     static void closeQuietly(final Closeable closeable) {
         try {
             if (closeable != null) {
@@ -50,9 +52,10 @@ final class Utils {
 
     static void testRecordGPSLocation(final Context context) {
         final RequestQueue requestQueue = Volley.newRequestQueue(context);
-        Map<String, Double> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>();
         map.put(LONGITUDE, 120.06345);
         map.put(LATITUDE, 31.77156);
+        map.put(ADCODE, "32032");
         JsonObjectRequest request = new JsonObjectRequest(RECORD_GPS_LOCATION_URL, new JSONObject(map),
                 new Response.Listener<JSONObject>() {
                     @Override
